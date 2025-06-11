@@ -53,7 +53,7 @@ export default function Contacto(props) {
             <div>
               <h3 className="font-semibold">Teléfono</h3>
               <p className={darkMode ? "text-gray-300" : "text-gray-600"}>
-                +57 3147971945  
+                +57 3147971945
               </p>
             </div>
           </div>
@@ -80,7 +80,7 @@ export default function Contacto(props) {
 
           <div className="flex space-x-4 pt-6">
             <a
-              href="#"
+              href="https://github.com/Oscar-A-C-C"
               className={`p-3 rounded-lg transition-colors ${
                 darkMode
                   ? "bg-gray-800 hover:bg-gray-700 text-gray-300"
@@ -90,7 +90,7 @@ export default function Contacto(props) {
               <Github className="h-6 w-6" />
             </a>
             <a
-              href="#"
+              href="https://www.linkedin.com/in/oscar-a-c-c/"
               className={`p-3 rounded-lg transition-colors ${
                 darkMode
                   ? "bg-gray-800 hover:bg-gray-700 text-gray-300"
@@ -100,7 +100,7 @@ export default function Contacto(props) {
               <Linkedin className="h-6 w-6" />
             </a>
             <a
-              href="#"
+              href="https://portfolio-peach-nine-43.vercel.app/"
               className={`p-3 rounded-lg transition-colors ${
                 darkMode
                   ? "bg-gray-800 hover:bg-gray-700 text-gray-300"
