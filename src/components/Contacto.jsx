@@ -80,6 +80,7 @@ export default function Contacto(props) {
 
           <div className="flex space-x-4 pt-6">
             <a
+              target="_blank"
               href="https://github.com/Oscar-A-C-C"
               className={`p-3 rounded-lg transition-colors ${
                 darkMode
@@ -90,6 +91,7 @@ export default function Contacto(props) {
               <Github className="h-6 w-6" />
             </a>
             <a
+              target="_blank"
               href="https://www.linkedin.com/in/oscar-a-c-c/"
               className={`p-3 rounded-lg transition-colors ${
                 darkMode
