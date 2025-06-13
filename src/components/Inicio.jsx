@@ -1,7 +1,6 @@
 import { Shield, Code, Server, Database, ChevronDown } from "lucide-react";
 
-export default function Inicio(props) {
-  let darkMode = props.darkmode;
+export default function Inicio({ darkMode }) {
   return (
     <>
       <div className="absolute inset-0 opacity-5">
