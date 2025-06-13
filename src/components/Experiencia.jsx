@@ -1,5 +1,4 @@
-export default function Experiencia(props) {
-  let darkMode = props.darkmode;
+export default function Experiencia({ darkMode }) {
   let trabajo = [
     {
       title: "Analista de seguridad de información",
