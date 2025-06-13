@@ -2,24 +2,7 @@ import React, { useState, useEffect } from "react";
 import Abaut from "./components/Abaut"; // Import your About component
 import "./styles.css"; // Import your CSS file
 
-import {
-  Shield,
-  Code,
-  Terminal,
-  Lock,
-  Server,
-  Database,
-  Globe,
-  Mail,
-  Phone,
-  MapPin,
-  Github,
-  Linkedin,
-  ExternalLink,
-  Moon,
-  Sun,
-  ChevronDown,
-} from "lucide-react";
+import { Shield, Moon, Sun, ChevronDown } from "lucide-react";
 import Inicio from "./components/Inicio";
 import Experiencia from "./components/Experiencia";
 import Skills from "./components/Skills";

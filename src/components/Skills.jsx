@@ -1,7 +1,6 @@
 import { Shield, Code } from "lucide-react";
 
-export default function Skills({ darkmode }) {
-  let darkMode = darkmode;
+export default function Skills({ darkMode }) {
   let habilidades = [
     "Pentesting",
     "OWASP Top 10",
