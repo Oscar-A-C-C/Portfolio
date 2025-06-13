@@ -1,6 +1,5 @@
 import { Globe, Mail, Phone, MapPin, Github, Linkedin } from "lucide-react";
-export default function Contacto(props) {
-  let darkMode = props.darkmode;
+export default function Contacto({ darkMode }) {
   return (
     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div className="text-center mb-12">
@@ -33,7 +32,7 @@ export default function Contacto(props) {
             <div>
               <h3 className="font-semibold">Email</h3>
               <p className={darkMode ? "text-gray-300" : "text-gray-600"}>
-                carrenooscar.95gmail.com
+                carrenooscar.95@gmail.com
               </p>
             </div>
           </div>
