@@ -1,5 +1,9 @@
 import { Shield, Code, Server, Database, ChevronDown } from "lucide-react";
 
+const scrollToSection = (sectionId) => {
+  document.getElementById(sectionId)?.scrollIntoView({ behavior: "smooth" });
+};
+
 export default function Inicio({ darkMode }) {
   return (
     <>

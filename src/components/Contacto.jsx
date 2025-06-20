@@ -1,5 +1,40 @@
 import { Globe, Mail, Phone, MapPin, Github, Linkedin } from "lucide-react";
+import { useState } from "react";
+import emailjs from "@emailjs/browser";
+import ReCAPTCHA from "react-google-recaptcha";
+
+function onChange(value) {
+  console.log("Captcha value:", value);
+}
+
 export default function Contacto({ darkMode }) {
+  const [buttonText, setButtonText] = useState("Enviar Email");
+  // ReCAPTCHA state
+  const [captchaValue, setCaptchaValue] = useState(null);
+
+  const handleSubmit = (event) => {
+    event.preventDefault();
+
+    setButtonText("Enviando...");
+
+    const serviceID = "default_service";
+    const templateID = "template_4w6bkd4";
+    emailjs.init({
+      publicKey: "rcBWL5NWgaAkne0K6",
+    });
+    emailjs.sendForm(serviceID, templateID, event.target).then(
+      () => {
+        setButtonText("Enviar Email");
+        alert("Enviado!");
+      },
+      (err) => {
+        setButtonText("Enviar Email");
+        alert(JSON.stringify(err));
+      }
+    );
+    darkMode = darkMode == undefined ? false : darkMode;
+  };
+
   return (
     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div className="text-center mb-12">
@@ -121,34 +156,39 @@ export default function Contacto({ darkMode }) {
           }`}
         >
           <h3 className="text-xl font-semibold mb-6">Envíame un mensaje</h3>
-          <form className="space-y-4">
+          <form className="space-y-4" id="form" onSubmit={handleSubmit}>
             <div>
               <label className="block text-sm font-medium mb-2">Nombre</label>
               <input
                 type="text"
+                name="name"
                 className={`w-full p-3 rounded-lg border transition-colors ${
                   darkMode
                     ? "bg-gray-700 border-gray-600 text-white focus:border-cyan-400"
                     : "bg-white border-gray-300 text-gray-900 focus:border-blue-500"
                 } focus:outline-none`}
                 placeholder="Tu nombre"
+                required
               />
             </div>
             <div>
               <label className="block text-sm font-medium mb-2">Email</label>
               <input
                 type="email"
+                name="email"
                 className={`w-full p-3 rounded-lg border transition-colors ${
                   darkMode
                     ? "bg-gray-700 border-gray-600 text-white focus:border-cyan-400"
                     : "bg-white border-gray-300 text-gray-900 focus:border-blue-500"
                 } focus:outline-none`}
                 placeholder="tu@email.com"
+                required
               />
             </div>
             <div>
               <label className="block text-sm font-medium mb-2">Mensaje</label>
               <textarea
+                name="message"
                 rows={4}
                 className={`w-full p-3 rounded-lg border transition-colors ${
                   darkMode
@@ -156,19 +196,31 @@ export default function Contacto({ darkMode }) {
                     : "bg-white border-gray-300 text-gray-900 focus:border-blue-500"
                 } focus:outline-none`}
                 placeholder="Cuéntame sobre tu proyecto..."
+                required
               />
             </div>
-            <button
+            <ReCAPTCHA
+              sitekey="6LdH9WYrAAAAABBekKSbiQaGgJ2f8lw5BPMtJ-oM"
+              className="mb-4"
+              value={captchaValue}
+              onChange={onChange}
+            />
+            ,
+            <input
               type="submit"
+              value={buttonText}
+              id="button"
               className={`w-full py-3 rounded-lg font-semibold transition-all transform hover:scale-105 ${
                 darkMode
                   ? "bg-cyan-500 hover:bg-cyan-600 text-black"
                   : "bg-blue-600 hover:bg-blue-700 text-white"
               }`}
-            >
-              Enviar Mensaje
-            </button>
+            />
           </form>
+          <script
+            type="text/javascript"
+            src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"
+          ></script>
         </div>
       </div>
     </div>
